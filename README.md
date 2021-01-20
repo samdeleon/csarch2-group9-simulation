@@ -7,4 +7,5 @@
 - MARASIGAN, Giann
 
 ### Running the Application
-1. ``` javac Name.java ```
+1. ``` javac restorative_division.java ```
+2. ``` java restorative_division ```
