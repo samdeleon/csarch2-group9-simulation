@@ -1,4 +1,5 @@
-import java.util.Arrays; 
+import java.util.Arrays;
+import java.util.ArrayList;
 class restorative_division {
 
     /*
@@ -11,13 +12,13 @@ class restorative_division {
 
         what we don't have:
         1. validation for strings
-        2. 
+        2. output to text file
 
         what we have to do soon:
         1. adapt these methods into GUI (we have to remove the
         static keyword iirc)
         2. two modes, show all or show one by one
-        3. 
+        3.
 
         tbh i have only tested for the first two examples in the slides
         feel free to test the methods and edit if theres any errors
@@ -25,15 +26,15 @@ class restorative_division {
     */
 
     public static String temp_print_row(String A, String Q){
-       
+
         return "";
     }
 
     public static String fill_A (int str_length){
         /*
             One way to fill a string with a specific character
-            
-            the function initializes a string that has a +1 size 
+
+            the function initializes a string that has a +1 size
             to represent the extra bit needed by A
         */
         char[] arr = new char[str_length + 1];
@@ -41,7 +42,7 @@ class restorative_division {
             Fills the new string with 0s
         */
         Arrays.fill(arr, '0');
-        
+
         return new String(arr);
     }
 
@@ -58,7 +59,7 @@ class restorative_division {
 
         for (int i = M.length() - 1 ; i >=0 ; i--){
             /*
-                while first is is not found
+                while first 1 is not found
                 just copies the zero
 
                 when first 1 is found nothing still happens to the string
@@ -82,10 +83,10 @@ class restorative_division {
                 }
             }
         }
-        
+
         return String.valueOf(arr);
     }
-    
+
     /*
         This function shifts all the characters of a string to the left
         and inserts a character at the right most postion
@@ -101,7 +102,7 @@ class restorative_division {
         */
         char[] arr = input_string.toCharArray();
         /*
-            Starts at 0 
+            Starts at 0
             index i copies its value from index i + 1
             stops 1 index before end of string
         */
@@ -130,7 +131,7 @@ class restorative_division {
     */
     public static String binary_addition(String A, String B){
         /*
-            Creates a temp string to make a char array to change 
+            Creates a temp string to make a char array to change
             the individual characters
         */
 
@@ -153,7 +154,7 @@ class restorative_division {
                     answer[i] = '0';
                 }
                 carry = 0;
-                
+
 
             }
             else if (A.charAt(i) == '0' && B.charAt(i) == '1'){
@@ -179,13 +180,13 @@ class restorative_division {
                     answer[i] = '1';
                     carry = 0;
                 }
-               
+
             }
             else if (A.charAt(i) == '1' && B.charAt(i) == '1'){
                 //regardless of result 1 carry is always 1
                 if (carry == 1){
                     answer[i] = '1';
-                } 
+                }
                 else{
                     answer[i] = '0';
                 }
@@ -224,10 +225,10 @@ class restorative_division {
         extension += string_input;
         return extension;
     }
-    
-    /*  
+
+    /*
         Steps based on slides:
-        mode == true == step-by-step mode
+        mode == true == step-by-step mode (there's a "next step" button)
         mode == false == show all in one go mode
         ^my understanding of the specs
 
@@ -252,6 +253,8 @@ class restorative_division {
         String Q_dividend = Q;
         String M_divisor;
         String M_compliment;
+        String A_added;
+        ArrayList<String> steps = new ArrayList<String>(); //for use in step by step mode
 
         /*
             is it possible for M to be longer than Q???
@@ -268,13 +271,14 @@ class restorative_division {
             M_divisor = M;
             M_compliment = twos_compliment(M);
         }
-        
+
         /*
             The loop just follows the steps above
         */
         for (int i = 0 ; i < Q_dividend.length() ; i++){
             A = shift_and_insert(A, Q_dividend.charAt(0));
             A = binary_addition(A, M_compliment);
+            A_added = A;
 
             if (A.charAt(0) == '1'){
                 A = binary_addition(A, M_divisor);
@@ -288,12 +292,68 @@ class restorative_division {
 
                 but probably at this point we output to GUI
             */
-            System.out.println("Pass# " + i);
-            System.out.println("A:\tQ:");
-            System.out.println(A + "\t" + Q_dividend);
-            System.out.println("");
+            if (mode == true) {
+            	char[] Q_blank = Q_dividend.toCharArray();
+				Q_blank[Q_dividend.length()-1] = '_';
+				String Q_nblank = String.valueOf(Q_blank);
+				int num = i+1;
+	            if (i == 0) {
+	            	System.out.println("INITIALIZATION--------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q);
+	            	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
+	            	System.out.println("");
+
+	            	System.out.println("Pass# " + num + "---------------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
+	            	System.out.println("A:" + A_added);
+	            	System.out.println("\nFinal:");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
+	            	System.out.println("");
+	            } if (i == Q_dividend.length() - 1) {
+	            	System.out.println("END-------------------");
+            		System.out.println("\nFinal Answer:");
+	            	System.out.println("Remainder:" + A + "\t\tQuotient:" + Q_dividend);
+	            	System.out.println("");
+	            } else {
+	            	System.out.println("Pass# " + num + "---------------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
+	            	System.out.println("A:" + A_added);
+	            	System.out.println("\nFinal:");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
+	            	System.out.println("");
+	            }
+            } else {
+            	char[] Q_blank = Q_dividend.toCharArray();
+				Q_blank[Q_dividend.length()-1] = '_';
+				String Q_nblank = String.valueOf(Q_blank);
+				int num = i+1;
+	            if (i == 0) {
+	            	System.out.println("INITIALIZATION--------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q);
+	            	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
+	            	System.out.println("");
+
+	            	System.out.println("Pass# " + num + "---------------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
+	            	System.out.println("A:" + A_added);
+	            	System.out.println("\nFinal:");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
+	            	System.out.println("");
+	            } if (i == Q_dividend.length() - 1) {
+	            	System.out.println("END-------------------");
+            		System.out.println("\nFinal Answer:");
+	            	System.out.println("Remainder:" + A + "\t\tQuotient:" + Q_dividend);
+	            	System.out.println("");
+	            } else {
+	            	System.out.println("Pass# " + num + "---------------");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
+	            	System.out.println("A:" + A_added);
+	            	System.out.println("\nFinal:");
+	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
+	            	System.out.println("");
+	            }
+            }
         }
-        
     }
 
     public static void main (String[] args){
@@ -301,10 +361,10 @@ class restorative_division {
             These are just to test functions
         */
 
-        String Q_dividend = "01101";
-        String M_divisor = "00101";
+        String Q_dividend = "00111";
+        String M_divisor = "00011";
 
-        dibision(Q_dividend, M_divisor, true);
+        dibision(Q_dividend, M_divisor, false);
 
     }
 }
