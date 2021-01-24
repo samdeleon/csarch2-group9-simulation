@@ -249,11 +249,13 @@ class restorative_division {
         ***Q0 == Q at index 0
     */
     public static void dibision (String Q, String M, Boolean mode){
+    	RUDSimulator gui = new RUDSimulator();
         String A = fill_A(Q.length());
         String Q_dividend = Q;
         String M_divisor;
         String M_compliment;
         String A_added;
+        String step; //for use in step by step mode
         ArrayList<String> steps = new ArrayList<String>(); //for use in step by step mode
 
         /*
@@ -292,67 +294,44 @@ class restorative_division {
 
                 but probably at this point we output to GUI
             */
-            if (mode == true) {
-            	char[] Q_blank = Q_dividend.toCharArray();
-				Q_blank[Q_dividend.length()-1] = '_';
-				String Q_nblank = String.valueOf(Q_blank);
-				int num = i+1;
-	            if (i == 0) {
-	            	System.out.println("INITIALIZATION--------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q);
-	            	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
-	            	System.out.println("");
+            char[] Q_blank = Q_dividend.toCharArray();
+			Q_blank[Q_dividend.length()-1] = '_';
+			String Q_nblank = String.valueOf(Q_blank);
+			int num = i+1;
 
-	            	System.out.println("Pass# " + num + "---------------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
-	            	System.out.println("A:" + A_added);
-	            	System.out.println("\nFinal:");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
-	            	System.out.println("");
-	            } if (i == Q_dividend.length() - 1) {
-	            	System.out.println("END-------------------");
-            		System.out.println("\nFinal Answer:");
-	            	System.out.println("Remainder:" + A + "\t\tQuotient:" + Q_dividend);
-	            	System.out.println("");
-	            } else {
-	            	System.out.println("Pass# " + num + "---------------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
-	            	System.out.println("A:" + A_added);
-	            	System.out.println("\nFinal:");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
-	            	System.out.println("");
-	            }
-            } else {
-            	char[] Q_blank = Q_dividend.toCharArray();
-				Q_blank[Q_dividend.length()-1] = '_';
-				String Q_nblank = String.valueOf(Q_blank);
-				int num = i+1;
-	            if (i == 0) {
-	            	System.out.println("INITIALIZATION--------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q);
-	            	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
-	            	System.out.println("");
+			if (mode == true && i == 0)
+				System.out.println("-STEP BY STEP-");
+			else if (mode == false && i == 0)
+				System.out.println("-ALL-");
 
-	            	System.out.println("Pass# " + num + "---------------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
-	            	System.out.println("A:" + A_added);
-	            	System.out.println("\nFinal:");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
-	            	System.out.println("");
-	            } if (i == Q_dividend.length() - 1) {
-	            	System.out.println("END-------------------");
-            		System.out.println("\nFinal Answer:");
-	            	System.out.println("Remainder:" + A + "\t\tQuotient:" + Q_dividend);
-	            	System.out.println("");
-	            } else {
-	            	System.out.println("Pass# " + num + "---------------");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_nblank);
-	            	System.out.println("A:" + A_added);
-	            	System.out.println("\nFinal:");
-	            	System.out.println("A:" + A + "\t\tQ:" + Q_dividend);
-	            	System.out.println("");
-	            }
-            }
+	        if (i == 0) {
+	           	System.out.println("INITIALIZATION--------");
+	           	System.out.println("A:" + A + "\t\tQ:" + Q);
+	           	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
+	           	System.out.println("");
+
+	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	steps.add(step);
+	        } if (i == Q_dividend.length() - 1) {
+	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
+	           	steps.add(step);
+	        } else {
+	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	steps.add(step);
+	        }
+
+
+        }
+
+	    if (mode == true) {
+	       	//will be replaced with compatibility with UI's next step button
+	       	for (String str : steps) {
+      			System.out.println(str);
+   			}
+     	} else {
+	       	for (String str : steps) {
+      			System.out.println(str);
+    		}
         }
     }
 
@@ -361,10 +340,10 @@ class restorative_division {
             These are just to test functions
         */
 
-        String Q_dividend = "00111";
-        String M_divisor = "00011";
+        String Q_dividend = "0011";
+        String M_divisor = "0111";
 
-        dibision(Q_dividend, M_divisor, false);
+        dibision(Q_dividend, M_divisor, true);
 
     }
 }

@@ -72,7 +72,7 @@ public class RUDSimulator extends JFrame {
         setTitle("Restorative Unsigned Division Simulator");
         setResizable(false);
         setVisible(true);
-        var contentPane = getContentPane();
+        Container contentPane = getContentPane();
         contentPane.setLayout(new BorderLayout());
 
         //======== card_container ========
@@ -334,3 +334,6 @@ public class RUDSimulator extends JFrame {
     private JScrollPane textareaOutput2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
+
+
+
