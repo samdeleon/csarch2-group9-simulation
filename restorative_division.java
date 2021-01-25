@@ -36,7 +36,12 @@ class restorative_division {
     		public void actionPerformed(ActionEvent event) {
 				String dividend = gui.inputDividend.getText();
 				String divisor = gui.inputDivisor.getText();
-				dibision(dividend, divisor, true); //will be replaced by display to the output page
+				boolean mode = true;
+				if (gui.radiobtnAll.isSelected())
+					mode = false;
+				else if (gui.radiobtnSteps.isSelected())
+					mode = true;
+				dibision(dividend, divisor, mode); //will be replaced by display to the output page
     		}
 		});
     }

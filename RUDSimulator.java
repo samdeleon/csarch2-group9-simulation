@@ -66,6 +66,7 @@ public class RUDSimulator extends JFrame {
         btnGenerateFile2 = new JButton();
         btnBacktoMenu2 = new JButton();
         textareaOutput2 = new JScrollPane();
+        btngroup = new ButtonGroup();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -126,10 +127,14 @@ public class RUDSimulator extends JFrame {
                     //---- radiobtnSteps ----
                     radiobtnSteps.setText("Show Step by Step");
                     radiobtnSteps.setForeground(Color.white);
+                    radiobtnSteps.setSelected(true);
 
                     //---- radiobtnAll ----
                     radiobtnAll.setText("Show All");
                     radiobtnAll.setForeground(Color.white);
+
+                    btngroup.add(radiobtnSteps);
+                    btngroup.add(radiobtnAll);
 
                     GroupLayout panelInsideLayout = new GroupLayout(panelInside);
                     panelInside.setLayout(panelInsideLayout);
@@ -321,8 +326,8 @@ public class RUDSimulator extends JFrame {
     private JLabel labelGroupNames;
     public JTextField inputDivisor;
     private JLabel labelDivisor;
-    private JRadioButton radiobtnSteps;
-    private JRadioButton radiobtnAll;
+    public JRadioButton radiobtnSteps;
+    public JRadioButton radiobtnAll;
     private JLabel labelAppName;
     private JPanel OutputSteps;
     private JButton btnGenerateFile;
@@ -332,6 +337,7 @@ public class RUDSimulator extends JFrame {
     private JButton btnGenerateFile2;
     private JButton btnBacktoMenu2;
     private JScrollPane textareaOutput2;
+    private ButtonGroup btngroup;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
 
