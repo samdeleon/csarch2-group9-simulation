@@ -1,5 +1,7 @@
 import java.util.Arrays;
 import java.util.ArrayList;
+import java.awt.*;
+import java.awt.event.*;
 class restorative_division {
 
     /*
@@ -24,6 +26,20 @@ class restorative_division {
         feel free to test the methods and edit if theres any errors
         hopefully my comments help yalls understand
     */
+
+    public RUDSimulator gui;
+
+    public restorative_division() {
+    	gui = new RUDSimulator();
+		gui.btnEnter.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent event) {
+				String dividend = gui.inputDividend.getText();
+				String divisor = gui.inputDivisor.getText();
+				dibision(dividend, divisor, true); //will be replaced by display to the output page
+    		}
+		});
+    }
 
     public static String temp_print_row(String A, String Q){
 
@@ -206,15 +222,15 @@ class restorative_division {
     }
 
     /*
-        Not sure if needed yung sign extend
+        Appends 0 to the start of the input string until it matches the given length
     */
-    public static String sign_extend(String string_input, int match_length){
+    public static String zero_extend(String string_input, int match_length){
 
         int diff_length = match_length - string_input.length();
 
         char[] arr = new char[diff_length];
 
-        Arrays.fill(arr, string_input.charAt(0));
+        Arrays.fill(arr, '0');
 
         String extension = new String (arr);
 
@@ -224,6 +240,29 @@ class restorative_division {
         */
         extension += string_input;
         return extension;
+    }
+
+    /*
+     	Function that returns the versions of the dividend and divisor with the minimum amount of bits needed
+     	String in index 0 of the output would always be the 1st input and index 1 for the 2nd input
+     	i.e. 0111/0010 would become 111/010
+     */
+     public static ArrayList<String> shave(String dividend, String divisor){
+		ArrayList<String> nums = new ArrayList<String>();
+		String d1 = new String();
+		String d2 = new String();
+
+		for (int i=0; i < dividend.length(); i++) {
+			if (dividend.charAt(i) != '0' || divisor.charAt(i) != '0') {
+				d1 = dividend.substring(i);
+				d2 = divisor.substring(i);
+				break;
+			}
+		}
+        nums.add(d1);
+        nums.add(d2);
+
+        return nums;
     }
 
     /*
@@ -249,7 +288,10 @@ class restorative_division {
         ***Q0 == Q at index 0
     */
     public static void dibision (String Q, String M, Boolean mode){
-    	RUDSimulator gui = new RUDSimulator();
+    	ArrayList<String> nums = shave(Q, M);
+    	Q = nums.get(0);
+    	M = nums.get(1);
+
         String A = fill_A(Q.length());
         String Q_dividend = Q;
         String M_divisor;
@@ -266,7 +308,7 @@ class restorative_division {
         */
 
         if (M.length() != A.length()){
-            M_divisor = sign_extend(M, A.length());
+            M_divisor = zero_extend(M, A.length());
             M_compliment = twos_compliment(M_divisor);
         }
         else {
@@ -312,11 +354,11 @@ class restorative_division {
 
 	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
 	           	steps.add(step);
-	        } if (i == Q_dividend.length() - 1) {
+	        } else if (i == Q_dividend.length() - 1) {
 	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
 	           	steps.add(step);
 	        } else {
-	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
 	           	steps.add(step);
 	        }
 
@@ -340,10 +382,9 @@ class restorative_division {
             These are just to test functions
         */
 
-        String Q_dividend = "0011";
-        String M_divisor = "0111";
+        String Q_dividend = "00001111";
+        String M_divisor = "00001101";
 
-        dibision(Q_dividend, M_divisor, true);
-
+        restorative_division rd = new restorative_division();
     }
 }

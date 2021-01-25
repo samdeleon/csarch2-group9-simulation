@@ -315,11 +315,11 @@ public class RUDSimulator extends JFrame {
     private JPanel card_container;
     private JPanel InputMenu;
     private JPanel panelInside;
-    private JTextField inputDividend;
+    public JTextField inputDividend;
     private JLabel labelDividend;
-    private JButton btnEnter;
+    public JButton btnEnter;
     private JLabel labelGroupNames;
-    private JTextField inputDivisor;
+    public JTextField inputDivisor;
     private JLabel labelDivisor;
     private JRadioButton radiobtnSteps;
     private JRadioButton radiobtnAll;
