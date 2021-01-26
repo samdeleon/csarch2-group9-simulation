@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
-class restorative_division {
+class restoring_division {
 
     /*
         What we have so far:
@@ -29,7 +29,7 @@ class restorative_division {
 
     public RUDSimulator gui;
 
-    public restorative_division() {
+    public restoring_division() {
     	gui = new RUDSimulator();
 		gui.btnEnter.addActionListener(new ActionListener() {
     		@Override
@@ -390,6 +390,6 @@ class restorative_division {
         String Q_dividend = "00001111";
         String M_divisor = "00001101";
 
-        restorative_division rd = new restorative_division();
+        restoring_division rd = new restoring_division();
     }
 }
