@@ -49,7 +49,8 @@ public class RUDSimulator extends JFrame {
     }
 
     private void button3ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        CardLayout card = (CardLayout)card_container.getLayout();
+        card.show(card_container, "card1");
     }
 
     private void initComponents() {
@@ -91,13 +92,11 @@ public class RUDSimulator extends JFrame {
             card_container.setBackground(new Color(17, 99, 65));
             card_container.setForeground(Color.white);
             card_container.setPreferredSize(null);
-            card_container.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax
-            .swing.border.EmptyBorder(0,0,0,0), "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn",javax.swing
-            .border.TitledBorder.CENTER,javax.swing.border.TitledBorder.BOTTOM,new java.awt.
-            Font("Dia\u006cog",java.awt.Font.BOLD,12),java.awt.Color.red
-            ),card_container. getBorder()));card_container. addPropertyChangeListener(new java.beans.PropertyChangeListener(){@Override
-            public void propertyChange(java.beans.PropertyChangeEvent e){if("\u0062ord\u0065r".equals(e.getPropertyName(
-            )))throw new RuntimeException();}});
+            card_container.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax. swing. border. EmptyBorder(
+            0, 0, 0, 0) , "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder
+            . BOTTOM, new java .awt .Font ("Dia\u006cog" ,java .awt .Font .BOLD ,12 ), java. awt. Color.
+            red) ,card_container. getBorder( )) ); card_container. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .
+            beans .PropertyChangeEvent e) {if ("bord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException( ); }} );
             card_container.setLayout(new CardLayout());
 
             //======== InputMenu ========
@@ -107,7 +106,7 @@ public class RUDSimulator extends JFrame {
 
                 //======== panelInside ========
                 {
-                    panelInside.setBackground(new Color(0, 0, 0, 175));
+                    panelInside.setBackground(new Color(68, 68, 68));
                     panelInside.setForeground(Color.white);
 
                     //---- labelDividend ----
@@ -120,7 +119,6 @@ public class RUDSimulator extends JFrame {
                     btnEnter.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                     btnEnter.setForeground(Color.white);
                     btnEnter.setBackground(new Color(17, 99, 65));
-                    btnEnter.addActionListener(e -> button3ActionPerformed(e));
 
                     //---- labelGroupNames ----
                     labelGroupNames.setText("By S12 Group 9 - DE LEON, CHUA CHIACO, GONZALES, MARASIGAN");
@@ -136,12 +134,12 @@ public class RUDSimulator extends JFrame {
                     //---- radiobtnSteps ----
                     radiobtnSteps.setText("Show Step by Step");
                     radiobtnSteps.setForeground(Color.white);
-                    radiobtnSteps.setBackground(new Color(0, 0, 0, 175));
+                    radiobtnSteps.setBackground(new Color(68, 68, 68));
 
                     //---- radiobtnAll ----
                     radiobtnAll.setText("Show All");
                     radiobtnAll.setForeground(Color.white);
-                    radiobtnAll.setBackground(new Color(0, 0, 0, 175));
+                    radiobtnAll.setBackground(new Color(68, 68, 68));
 
                     GroupLayout panelInsideLayout = new GroupLayout(panelInside);
                     panelInside.setLayout(panelInsideLayout);
@@ -236,19 +234,19 @@ public class RUDSimulator extends JFrame {
                 //---- btnGenerateFile ----
                 btnGenerateFile.setText("Generate File");
                 btnGenerateFile.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
-                btnGenerateFile.setBackground(new Color(17, 99, 65));
+                btnGenerateFile.setBackground(Color.white);
                 btnGenerateFile.addActionListener(e -> button3ActionPerformed(e));
 
                 //---- btnBacktoMenu ----
                 btnBacktoMenu.setText("Back to Menu");
                 btnBacktoMenu.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
-                btnBacktoMenu.setBackground(new Color(17, 99, 65));
+                btnBacktoMenu.setBackground(Color.white);
                 btnBacktoMenu.addActionListener(e -> button3ActionPerformed(e));
 
                 //---- btnNextStep ----
                 btnNextStep.setText("Next Step");
                 btnNextStep.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
-                btnNextStep.setBackground(new Color(17, 99, 65));
+                btnNextStep.setBackground(Color.white);
                 btnNextStep.addActionListener(e -> button4ActionPerformed(e));
 
                 GroupLayout OutputStepsLayout = new GroupLayout(OutputSteps);
@@ -289,13 +287,13 @@ public class RUDSimulator extends JFrame {
                 //---- btnGenerateFile2 ----
                 btnGenerateFile2.setText("Generate File");
                 btnGenerateFile2.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
-                btnGenerateFile2.setBackground(new Color(17, 99, 65));
+                btnGenerateFile2.setBackground(Color.white);
                 btnGenerateFile2.addActionListener(e -> button3ActionPerformed(e));
 
                 //---- btnBacktoMenu2 ----
                 btnBacktoMenu2.setText("Back to Menu");
                 btnBacktoMenu2.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
-                btnBacktoMenu2.setBackground(new Color(17, 99, 65));
+                btnBacktoMenu2.setBackground(Color.white);
                 btnBacktoMenu2.addActionListener(e -> button3ActionPerformed(e));
 
                 GroupLayout OutputAllLayout = new GroupLayout(OutputAll);

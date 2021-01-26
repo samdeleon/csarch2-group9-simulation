@@ -36,7 +36,7 @@ new FormModel {
 						"$verticalGroup": "par l {seq t {space :p:19:p, par t {comp labelDividend:::p:26:p, comp inputDividend:::p:25:p}, space :::x, par l {seq {comp labelDivisor:::p:26:p, space :p:2:p}, seq t {comp inputDivisor:::p:25:p, space :::p}}, comp radiobtnSteps:::p::p, space :::p, comp radiobtnAll:::p::p, space u:::p, comp btnEnter:::p:40:p, space :::p, comp labelGroupNames:::p:42:p}}"
 					} ) {
 						name: "panelInside"
-						"background": new java.awt.Color( 0, 0, 0, 175 )
+						"background": new java.awt.Color( 68, 68, 68, 255 )
 						"foreground": sfield java.awt.Color white
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
@@ -58,11 +58,10 @@ new FormModel {
 							"text": "Enter"
 							"font": &Font1 new java.awt.Font( "SansSerif", 0, 13 )
 							"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
-							"background": &Color0 new java.awt.Color( 17, 99, 65, 255 )
+							"background": new java.awt.Color( 17, 99, 65, 255 )
 							auxiliary() {
 								"JavaCodeGenerator.variableModifiers": 1
 							}
-							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "labelGroupNames"
@@ -87,7 +86,7 @@ new FormModel {
 							name: "radiobtnSteps"
 							"text": "Show Step by Step"
 							"foreground": sfield java.awt.Color white
-							"background": new java.awt.Color( 0, 0, 0, 175 )
+							"background": new java.awt.Color( 68, 68, 68, 255 )
 							"$buttonGroup": new FormReference( "btngroup" )
 							auxiliary() {
 								"JavaCodeGenerator.variableModifiers": 1
@@ -97,7 +96,7 @@ new FormModel {
 							name: "radiobtnAll"
 							"text": "Show All"
 							"foreground": sfield java.awt.Color white
-							"background": new java.awt.Color( 0, 0, 0, 175 )
+							"background": new java.awt.Color( 68, 68, 68, 255 )
 							"$buttonGroup": new FormReference( "btngroup" )
 							auxiliary() {
 								"JavaCodeGenerator.variableModifiers": 1
@@ -119,7 +118,7 @@ new FormModel {
 					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput:::p:274:p, space u:::p, par b {comp btnGenerateFile::b:p:40:p, comp btnBacktoMenu::b:p:40:p, comp btnNextStep::b:p:40:p}, space :p:93:p}}"
 				} ) {
 					name: "OutputSteps"
-					"background": &Color1 new java.awt.Color( 17, 99, 65, 255 )
+					"background": new java.awt.Color( 17, 99, 65, 255 )
 					auxiliary() {
 						"JavaCodeGenerator.variableModifiers": 1
 					}
@@ -127,7 +126,7 @@ new FormModel {
 						name: "btnGenerateFile"
 						"text": "Generate File"
 						"font": #Font1
-						"background": #Color0
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
@@ -137,7 +136,7 @@ new FormModel {
 						name: "btnBacktoMenu"
 						"text": "Back to Menu"
 						"font": #Font1
-						"background": #Color0
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
@@ -153,7 +152,7 @@ new FormModel {
 						name: "btnNextStep"
 						"text": "Next Step"
 						"font": #Font1
-						"background": #Color0
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
@@ -167,7 +166,7 @@ new FormModel {
 					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput2:::p:274:p, space u:::p, par l {comp btnBacktoMenu2:::p:40:p, comp btnGenerateFile2::l:p:40:p}, space ::93:x}}"
 				} ) {
 					name: "OutputAll"
-					"background": #Color1
+					"background": new java.awt.Color( 17, 99, 65, 255 )
 					auxiliary() {
 						"JavaCodeGenerator.variableModifiers": 1
 					}
@@ -175,7 +174,7 @@ new FormModel {
 						name: "btnGenerateFile2"
 						"text": "Generate File"
 						"font": #Font1
-						"background": #Color0
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
@@ -185,7 +184,7 @@ new FormModel {
 						name: "btnBacktoMenu2"
 						"text": "Back to Menu"
 						"font": #Font1
-						"background": #Color0
+						"background": new java.awt.Color( 255, 255, 255, 255 )
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}

@@ -51,12 +51,24 @@ class restoring_division {
                 String title = arrayAnswer[2];
 
                 if(valid) {
-                    boolean mode = true;
-                    if (gui.radiobtnAll.isSelected())
+                    boolean mode = true;mode = false;
+                    if (gui.radiobtnAll.isSelected()){
                         mode = false;
-                    else if (gui.radiobtnSteps.isSelected())
+                        CardLayout layout = (CardLayout)gui.card_container.getLayout();
+                        layout.show(gui.card_container, "card3");
+                        
+                    }
+                    else if (gui.radiobtnSteps.isSelected()){
                         mode = true;
-                    dibision(dividend, divisor, mode); //will be replaced by display to the output page
+                        CardLayout layout = (CardLayout)gui.card_container.getLayout();
+                        layout.show(gui.card_container, "card2");
+                    }
+                        
+                    dibision(dividend, divisor, mode); //will be replaced by display to the output page 
+                    gui.inputDividend.setText("");
+                    gui.inputDivisor.setText("");
+                    gui.radiobtnAll.setSelected(false);
+                    gui.radiobtnSteps.setSelected(false);
                 }
                 else {
                     // shows errors in pop up message
