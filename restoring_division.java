@@ -410,10 +410,11 @@ public class restoring_division {
             M_divisor = M;
             M_compliment = twos_compliment(M);
         }
-
+        
         /*
             The loop just follows the steps above
         */
+        String tempInit = "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
         for (int i = 0 ; i < Q_dividend.length() ; i++){
             A = shift_and_insert(A, Q_dividend.charAt(0));
             A = binary_addition(A, M_compliment);
@@ -439,10 +440,10 @@ public class restoring_division {
 	        if (i == 0) {
                 // initialization shows up after clicking enter
 				if (mode) {
-                    initialization = "-STEP BY STEP-\n" + "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+                    initialization = "-STEP BY STEP-\n" + "INITIALIZATION--------" + "\n" + tempInit;
                 }
                 else {
-                    initialization = "-ALL-\n" + "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+                    initialization = "-ALL-\n" + "INITIALIZATION--------" + "\n" + tempInit;
                 }
 
                 // for steps in text area

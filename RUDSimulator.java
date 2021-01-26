@@ -25,7 +25,7 @@ public class RUDSimulator extends JFrame {
 
     public void showSuccessMessage()
     {
-        JOptionPane.showMessageDialog(this, "Text file has been successfully generated", "Success uwu", JOptionPane.PLAIN_MESSAGE);
+        JOptionPane.showMessageDialog(this, "Text file has been successfully generated! :)", "Success!", JOptionPane.PLAIN_MESSAGE);
     }
 
 
