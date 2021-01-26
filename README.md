@@ -7,5 +7,8 @@
 - MARASIGAN, Giann
 
 ### Running the Application
-1. ``` javac restorative_division.java ```
-2. ``` java restorative_division ```
+1. ``` javac restoring_division.java ```
+2. ``` java restoring_division ```
+
+
+** remember to make app into JAR file as the last step

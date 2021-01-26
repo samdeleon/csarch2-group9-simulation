@@ -426,7 +426,7 @@ class restoring_division {
 
         //1.) Incomplete Inputs (some are empty)
         if(flag) {
-            if(Q = "") {
+            if(Q.equals("")) {
                 flag = false;
                 message = "Please input the dividend";
                 title = "Incomplete Input";
@@ -434,7 +434,7 @@ class restoring_division {
         }
 
         if(flag) {
-            if(M = "") {
+            if(M.equals("")) {
                 flag = false;
                 message = "Please input the divisor";
                 title = "Incomplete Input";
@@ -462,9 +462,10 @@ class restoring_division {
         if (flag) {
             for (i = 0; i < Q.length(); i++)
             {
-
-                if ((Q.charAt(i) != '1' || Q.charAt(i) != '0'))
-                {
+                if (Q.charAt(i) == '1' || Q.charAt(i) == '0') {
+                    // its binary so do nothing
+                }
+                else {
                     flag = false;
                     message = "Dividend and Divisor should be binary numbers";
                     title = "Invalid Input";
@@ -477,8 +478,10 @@ class restoring_division {
         if (flag){
             for (i = 0; i < M.length(); i++)
             {
-                if ((M.charAt(i) != '1' || M.charAt(i) != '0'))
-                {
+                if (Q.charAt(i) == '1' || Q.charAt(i) == '0') {
+                    // its binary so do nothing
+                }
+                else {
                     flag = false;
                     message = "Dividend and Divisor should be binary numbers";
                     title = "Invalid Input";
