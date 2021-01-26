@@ -18,7 +18,7 @@ public class RUDSimulator extends JFrame {
         initComponents();
     }
 
-    private void button3ActionPerformed(ActionEvent e) {
+    private void button4ActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
 
@@ -43,9 +43,13 @@ public class RUDSimulator extends JFrame {
 
     }
 
+    private void button3ActionPerformed(ActionEvent e) {
+        // TODO add your code here
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-        // Generated using JFormDesigner Evaluation license - Samantha de Leon
+        // Generated using JFormDesigner Evaluation license - Johann Gonzales
         card_container = new JPanel();
         InputMenu = new JPanel();
         panelInside = new JPanel();
@@ -62,11 +66,11 @@ public class RUDSimulator extends JFrame {
         btnGenerateFile = new JButton();
         btnBacktoMenu = new JButton();
         textareaOutput = new JScrollPane();
+        btnNextStep = new JButton();
         OutputAll = new JPanel();
         btnGenerateFile2 = new JButton();
         btnBacktoMenu2 = new JButton();
         textareaOutput2 = new JScrollPane();
-        btngroup = new ButtonGroup();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -81,14 +85,13 @@ public class RUDSimulator extends JFrame {
             card_container.setBackground(new Color(17, 99, 65));
             card_container.setForeground(Color.white);
             card_container.setPreferredSize(null);
-            card_container.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (
-            new javax. swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmDes\u0069gner \u0045valua\u0074ion"
-            , javax. swing. border. TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM
-            , new java .awt .Font ("D\u0069alog" ,java .awt .Font .BOLD ,12 )
-            , java. awt. Color. red) ,card_container. getBorder( )) ); card_container. addPropertyChangeListener (
-            new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java .beans .PropertyChangeEvent e
-            ) {if ("\u0062order" .equals (e .getPropertyName () )) throw new RuntimeException( )
-            ; }} );
+            card_container.setBorder (new javax. swing. border. CompoundBorder( new javax .swing .border .TitledBorder (new javax.
+            swing. border. EmptyBorder( 0, 0, 0, 0) , "JF\u006frmD\u0065sig\u006eer \u0045val\u0075ati\u006fn", javax. swing. border
+            . TitledBorder. CENTER, javax. swing. border. TitledBorder. BOTTOM, new java .awt .Font ("Dia\u006cog"
+            ,java .awt .Font .BOLD ,12 ), java. awt. Color. red) ,card_container. getBorder
+            ( )) ); card_container. addPropertyChangeListener (new java. beans. PropertyChangeListener( ){ @Override public void propertyChange (java
+            .beans .PropertyChangeEvent e) {if ("\u0062ord\u0065r" .equals (e .getPropertyName () )) throw new RuntimeException
+            ( ); }} );
             card_container.setLayout(new CardLayout());
 
             //======== InputMenu ========
@@ -127,14 +130,12 @@ public class RUDSimulator extends JFrame {
                     //---- radiobtnSteps ----
                     radiobtnSteps.setText("Show Step by Step");
                     radiobtnSteps.setForeground(Color.white);
-                    radiobtnSteps.setSelected(true);
+                    radiobtnSteps.setBackground(new Color(0, 0, 0, 175));
 
                     //---- radiobtnAll ----
                     radiobtnAll.setText("Show All");
                     radiobtnAll.setForeground(Color.white);
-
-                    btngroup.add(radiobtnSteps);
-                    btngroup.add(radiobtnAll);
+                    radiobtnAll.setBackground(new Color(0, 0, 0, 175));
 
                     GroupLayout panelInsideLayout = new GroupLayout(panelInside);
                     panelInside.setLayout(panelInsideLayout);
@@ -156,9 +157,9 @@ public class RUDSimulator extends JFrame {
                                         .addGroup(panelInsideLayout.createParallelGroup()
                                             .addComponent(radiobtnAll)
                                             .addComponent(radiobtnSteps))))
-                                .addContainerGap(18, Short.MAX_VALUE))
+                                .addContainerGap(31, Short.MAX_VALUE))
                             .addGroup(GroupLayout.Alignment.TRAILING, panelInsideLayout.createSequentialGroup()
-                                .addGap(0, 157, Short.MAX_VALUE)
+                                .addGap(0, 169, Short.MAX_VALUE)
                                 .addComponent(btnEnter, GroupLayout.PREFERRED_SIZE, 80, GroupLayout.PREFERRED_SIZE)
                                 .addGap(156, 156, 156))
                             .addGroup(GroupLayout.Alignment.TRAILING, panelInsideLayout.createSequentialGroup()
@@ -189,7 +190,7 @@ public class RUDSimulator extends JFrame {
                 }
 
                 //---- labelAppName ----
-                labelAppName.setText("Restorative Unsigned Division Simulator");
+                labelAppName.setText("Restoring Unsigned Division Simulator");
                 labelAppName.setFont(new Font(Font.SANS_SERIF, Font.ITALIC, 20));
                 labelAppName.setForeground(Color.white);
                 labelAppName.setHorizontalAlignment(SwingConstants.CENTER);
@@ -200,12 +201,12 @@ public class RUDSimulator extends JFrame {
                     InputMenuLayout.createParallelGroup()
                         .addGroup(InputMenuLayout.createSequentialGroup()
                             .addContainerGap()
-                            .addComponent(labelAppName, GroupLayout.DEFAULT_SIZE, 436, Short.MAX_VALUE)
+                            .addComponent(labelAppName, GroupLayout.DEFAULT_SIZE, 536, Short.MAX_VALUE)
                             .addContainerGap())
-                        .addGroup(InputMenuLayout.createSequentialGroup()
-                            .addGap(27, 27, 27)
+                        .addGroup(GroupLayout.Alignment.TRAILING, InputMenuLayout.createSequentialGroup()
+                            .addContainerGap(88, Short.MAX_VALUE)
                             .addComponent(panelInside, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(28, Short.MAX_VALUE))
+                            .addGap(67, 67, 67))
                 );
                 InputMenuLayout.setVerticalGroup(
                     InputMenuLayout.createParallelGroup()
@@ -214,7 +215,7 @@ public class RUDSimulator extends JFrame {
                             .addComponent(labelAppName, GroupLayout.PREFERRED_SIZE, 70, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                             .addComponent(panelInside, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap())
+                            .addContainerGap(111, Short.MAX_VALUE))
                 );
             }
             card_container.add(InputMenu, "card1");
@@ -235,20 +236,27 @@ public class RUDSimulator extends JFrame {
                 btnBacktoMenu.setBackground(new Color(17, 99, 65));
                 btnBacktoMenu.addActionListener(e -> button3ActionPerformed(e));
 
+                //---- btnNextStep ----
+                btnNextStep.setText("Next Step");
+                btnNextStep.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
+                btnNextStep.setBackground(new Color(17, 99, 65));
+                btnNextStep.addActionListener(e -> button4ActionPerformed(e));
+
                 GroupLayout OutputStepsLayout = new GroupLayout(OutputSteps);
                 OutputSteps.setLayout(OutputStepsLayout);
                 OutputStepsLayout.setHorizontalGroup(
                     OutputStepsLayout.createParallelGroup()
                         .addGroup(OutputStepsLayout.createSequentialGroup()
                             .addGap(16, 16, 16)
-                            .addComponent(textareaOutput, GroupLayout.PREFERRED_SIZE, 414, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(18, Short.MAX_VALUE))
-                        .addGroup(GroupLayout.Alignment.TRAILING, OutputStepsLayout.createSequentialGroup()
-                            .addContainerGap(102, Short.MAX_VALUE)
-                            .addComponent(btnGenerateFile, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(btnBacktoMenu, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-                            .addGap(90, 90, 90))
+                            .addGroup(OutputStepsLayout.createParallelGroup()
+                                .addGroup(OutputStepsLayout.createSequentialGroup()
+                                    .addComponent(btnGenerateFile, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBacktoMenu, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 169, Short.MAX_VALUE)
+                                    .addComponent(btnNextStep, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textareaOutput, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
+                            .addContainerGap())
                 );
                 OutputStepsLayout.setVerticalGroup(
                     OutputStepsLayout.createParallelGroup()
@@ -258,8 +266,9 @@ public class RUDSimulator extends JFrame {
                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
                             .addGroup(OutputStepsLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                 .addComponent(btnGenerateFile, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBacktoMenu, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(14, Short.MAX_VALUE))
+                                .addComponent(btnBacktoMenu, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnNextStep, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+                            .addGap(93, 93, 93))
                 );
             }
             card_container.add(OutputSteps, "card2");
@@ -286,14 +295,14 @@ public class RUDSimulator extends JFrame {
                     OutputAllLayout.createParallelGroup()
                         .addGroup(OutputAllLayout.createSequentialGroup()
                             .addGap(16, 16, 16)
-                            .addComponent(textareaOutput2, GroupLayout.PREFERRED_SIZE, 414, GroupLayout.PREFERRED_SIZE)
-                            .addContainerGap(18, Short.MAX_VALUE))
-                        .addGroup(GroupLayout.Alignment.TRAILING, OutputAllLayout.createSequentialGroup()
-                            .addContainerGap(102, Short.MAX_VALUE)
-                            .addComponent(btnGenerateFile2, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-                            .addGap(26, 26, 26)
-                            .addComponent(btnBacktoMenu2, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
-                            .addGap(90, 90, 90))
+                            .addGroup(OutputAllLayout.createParallelGroup()
+                                .addGroup(OutputAllLayout.createSequentialGroup()
+                                    .addComponent(btnGenerateFile2, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(18, 18, 18)
+                                    .addComponent(btnBacktoMenu2, GroupLayout.PREFERRED_SIZE, 115, GroupLayout.PREFERRED_SIZE)
+                                    .addGap(0, 284, Short.MAX_VALUE))
+                                .addComponent(textareaOutput2, GroupLayout.DEFAULT_SIZE, 532, Short.MAX_VALUE))
+                            .addContainerGap())
                 );
                 OutputAllLayout.setVerticalGroup(
                     OutputAllLayout.createParallelGroup()
@@ -301,10 +310,10 @@ public class RUDSimulator extends JFrame {
                             .addGap(16, 16, 16)
                             .addComponent(textareaOutput2, GroupLayout.PREFERRED_SIZE, 274, GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(OutputAllLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                .addComponent(btnGenerateFile2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-                                .addComponent(btnBacktoMenu2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-                            .addContainerGap(14, Short.MAX_VALUE))
+                            .addGroup(OutputAllLayout.createParallelGroup()
+                                .addComponent(btnBacktoMenu2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(btnGenerateFile2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
+                            .addContainerGap(93, Short.MAX_VALUE))
                 );
             }
             card_container.add(OutputAll, "card3");
@@ -316,7 +325,7 @@ public class RUDSimulator extends JFrame {
     }
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-    // Generated using JFormDesigner Evaluation license - Samantha de Leon
+    // Generated using JFormDesigner Evaluation license - Johann Gonzales
     private JPanel card_container;
     private JPanel InputMenu;
     private JPanel panelInside;
@@ -330,14 +339,14 @@ public class RUDSimulator extends JFrame {
     public JRadioButton radiobtnAll;
     private JLabel labelAppName;
     private JPanel OutputSteps;
-    private JButton btnGenerateFile;
-    private JButton btnBacktoMenu;
-    private JScrollPane textareaOutput;
+    public JButton btnGenerateFile;
+    public JButton btnBacktoMenu;
+    public JScrollPane textareaOutput;
+    public JButton btnNextStep;
     private JPanel OutputAll;
-    private JButton btnGenerateFile2;
-    private JButton btnBacktoMenu2;
-    private JScrollPane textareaOutput2;
-    private ButtonGroup btngroup;
+    public JButton btnGenerateFile2;
+    public JButton btnBacktoMenu2;
+    public JScrollPane textareaOutput2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
 

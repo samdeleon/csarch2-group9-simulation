@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.2.4.305" Java: "1.8.0_202-release" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.3.0.337" Java: "1.8.0_231" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -18,14 +18,14 @@ new FormModel {
 				"foreground": sfield java.awt.Color white
 				"preferredSize": sfield com.jformdesigner.model.FormObject NULL_VALUE
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, comp labelAppName::::436:x, space :::p}, seq l {space :p:27:p, comp panelInside:::p::p, space ::28:x}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp labelAppName:::p:70:p, space :::p, comp panelInside:::p::p, space :::p}}"
+					"$horizontalGroup": "par l {seq {space :::p, comp labelAppName::::536:x, space :::p}, seq t {space ::88:x, comp panelInside:::p::p, space :p:67:p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp labelAppName:::p:70:p, space :::p, comp panelInside:::p::p, space ::111:x}}"
 				} ) {
 					name: "InputMenu"
 					"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
 					"background": new java.awt.Color( 17, 99, 65, 255 )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {seq {par l {seq l {space :p:15:p, par l:::p {comp labelDividend:::::x, comp labelDivisor:::p:60:p}, space :::p, par l:::p {comp inputDividend:::::x, comp inputDivisor:::p:294:p}}, seq l {space :p:119:p, par l {comp radiobtnAll:::p::p, comp radiobtnSteps:::p::p}}}, space ::18:x}, seq t {space :0:157:x, comp btnEnter:::p:80:p, space :p:156:p}, seq t {space :::p, comp labelGroupNames::::381:x, space :::p}}"
+						"$horizontalGroup": "par l {seq {par l {seq l {space :p:15:p, par l:::p {comp labelDividend:::::x, comp labelDivisor:::p:60:p}, space :::p, par l:::p {comp inputDividend:::::x, comp inputDivisor:::p:294:p}}, seq l {space :p:119:p, par l {comp radiobtnAll:::p::p, comp radiobtnSteps:::p::p}}}, space ::31:x}, seq t {space :0:169:x, comp btnEnter:::p:80:p, space :p:156:p}, seq t {space :::p, comp labelGroupNames::::381:x, space :::p}}"
 						"$verticalGroup": "par l {seq t {space :p:19:p, par l {comp labelDividend:::p:26:p, comp inputDividend:::::x}, space :::x, par b {comp labelDivisor::b:p:26:p, comp inputDivisor::b:p::p}, space u:::p, comp radiobtnSteps:::p::p, space :::p, comp radiobtnAll:::p::p, space u:::p, comp btnEnter:::p:40:p, space :::p, comp labelGroupNames:::p:42:p}}"
 					} ) {
 						name: "panelInside"
@@ -33,6 +33,9 @@ new FormModel {
 						"foreground": sfield java.awt.Color white
 						add( new FormComponent( "javax.swing.JTextField" ) {
 							name: "inputDividend"
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "labelDividend"
@@ -46,6 +49,9 @@ new FormModel {
 							"font": &Font1 new java.awt.Font( "SansSerif", 0, 13 )
 							"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
 							"background": &Color0 new java.awt.Color( 17, 99, 65, 255 )
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
@@ -57,6 +63,9 @@ new FormModel {
 						} )
 						add( new FormComponent( "javax.swing.JTextField" ) {
 							name: "inputDivisor"
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "labelDivisor"
@@ -68,16 +77,24 @@ new FormModel {
 							name: "radiobtnSteps"
 							"text": "Show Step by Step"
 							"foreground": sfield java.awt.Color white
+							"background": new java.awt.Color( 0, 0, 0, 175 )
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
 						} )
 						add( new FormComponent( "javax.swing.JRadioButton" ) {
 							name: "radiobtnAll"
 							"text": "Show All"
 							"foreground": sfield java.awt.Color white
+							"background": new java.awt.Color( 0, 0, 0, 175 )
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
 						} )
 					} )
 					add( new FormComponent( "javax.swing.JLabel" ) {
 						name: "labelAppName"
-						"text": "Restorative Unsigned Division Simulator"
+						"text": "Restoring Unsigned Division Simulator"
 						"font": new java.awt.Font( "SansSerif", 2, 20 )
 						"foreground": new javax.swing.plaf.ColorUIResource( 255, 255, 255 )
 						"horizontalAlignment": 0
@@ -86,8 +103,8 @@ new FormModel {
 					"value": "card1"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :p:16:p, comp textareaOutput:::p:414:p, space ::18:x}, seq t {space ::102:x, comp btnGenerateFile:::p:115:p, space :p:26:p, comp btnBacktoMenu:::p:115:p, space :p:90:p}}"
-					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput:::p:274:p, space u:::p, par b {comp btnGenerateFile::b:p:40:p, comp btnBacktoMenu::b:p:40:p}, space ::14:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile:::p:115:p, space s:::p, comp btnBacktoMenu:::p:115:p, space ::169:x, comp btnNextStep:::p:115:p}, comp textareaOutput::::532:x}, space :::p}}"
+					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput:::p:274:p, space u:::p, par b {comp btnGenerateFile::b:p:40:p, comp btnBacktoMenu::b:p:40:p, comp btnNextStep::b:p:40:p}, space :p:93:p}}"
 				} ) {
 					name: "OutputSteps"
 					"background": &Color1 new java.awt.Color( 17, 99, 65, 255 )
@@ -96,6 +113,9 @@ new FormModel {
 						"text": "Generate File"
 						"font": #Font1
 						"background": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
@@ -103,17 +123,33 @@ new FormModel {
 						"text": "Back to Menu"
 						"font": #Font1
 						"background": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "textareaOutput"
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+					} )
+					add( new FormComponent( "javax.swing.JButton" ) {
+						name: "btnNextStep"
+						"text": "Next Step"
+						"font": #Font1
+						"background": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button4ActionPerformed", true ) )
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "card2"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :p:16:p, comp textareaOutput2:::p:414:p, space ::18:x}, seq t {space ::102:x, comp btnGenerateFile2:::p:115:p, space :p:26:p, comp btnBacktoMenu2:::p:115:p, space :p:90:p}}"
-					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput2:::p:274:p, space u:::p, par b {comp btnGenerateFile2::b:p:40:p, comp btnBacktoMenu2::b:p:40:p}, space ::14:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile2:::p:115:p, space s:::p, comp btnBacktoMenu2:::p:115:p, space :0:284:x}, comp textareaOutput2::::532:x}, space :::p}}"
+					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput2:::p:274:p, space u:::p, par l {comp btnBacktoMenu2:::p:40:p, comp btnGenerateFile2::l:p:40:p}, space ::93:x}}"
 				} ) {
 					name: "OutputAll"
 					"background": #Color1
@@ -122,6 +158,9 @@ new FormModel {
 						"text": "Generate File"
 						"font": #Font1
 						"background": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
@@ -129,10 +168,16 @@ new FormModel {
 						"text": "Back to Menu"
 						"font": #Font1
 						"background": #Color0
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "textareaOutput2"
+						auxiliary() {
+							"JavaCodeGenerator.variableModifiers": 1
+						}
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "card3"
