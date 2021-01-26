@@ -49,7 +49,7 @@ class restoring_division {
                 boolean valid = Boolean.parseBoolean(arrayAnswer[0]);
                 String message = arrayAnswer[1];
                 String title = arrayAnswer[2];
-        
+
                 if(valid) {
                     boolean mode = true;
                     if (gui.radiobtnAll.isSelected())
@@ -63,7 +63,7 @@ class restoring_division {
                     gui.showErrorMessage(message, title);
                 }
 
-				
+
     		}
 		});
     }
@@ -262,26 +262,18 @@ class restoring_division {
     }
 
     /*
-     	Function that returns the versions of the dividend and divisor with the minimum amount of bits needed
-     	String in index 0 of the output would always be the 1st input and index 1 for the 2nd input
-     	i.e. 0111/0010 would become 111/010
+     	Function that returns the version of the number with the minimum amount of bits needed (removing 0s in the front)
      */
-     public static ArrayList<String> shave(String dividend, String divisor){
-		ArrayList<String> nums = new ArrayList<String>();
+     public static String shave(String num){
 		String d1 = new String();
-		String d2 = new String();
 
-		for (int i=0; i < dividend.length(); i++) {
-			if (dividend.charAt(i) != '0' || divisor.charAt(i) != '0') {
-				d1 = dividend.substring(i);
-				d2 = divisor.substring(i);
+		for (int i=0; i < num.length(); i++) {
+			if (num.charAt(i) != '0') {
+				d1 = num.substring(i);
 				break;
 			}
 		}
-        nums.add(d1);
-        nums.add(d2);
-
-        return nums;
+        return d1;
     }
 
     /*
@@ -307,9 +299,11 @@ class restoring_division {
         ***Q0 == Q at index 0
     */
     public static void dibision (String Q, String M, Boolean mode){
-    	ArrayList<String> nums = shave(Q, M);
-    	Q = nums.get(0);
-    	M = nums.get(1);
+    	Q = shave(Q);
+    	M = shave(M);
+
+    	if (Q.length() < M.length())
+    		Q = zero_extend(Q, M.length());
 
         String A = fill_A(Q.length());
         String Q_dividend = Q;
@@ -398,11 +392,11 @@ class restoring_division {
 
     public static String[] validationCheck(String Q, String M, Boolean isRadioEmpty) {
         /*
-            This validation checker is done before the dibision function is 
+            This validation checker is done before the dibision function is
             called to ensure that the 2 inputs are valid inputs, which will
             lead to a valid answer. The validation check function will contain
             4 validations:
-            
+
             1.) Incomplete Inputs (some are empty)
             2.) #of bits for both Q and M are <= 16
             2.) Dividend and Divisor string only contains 1s and 0s
@@ -432,7 +426,7 @@ class restoring_division {
                 title = "Incomplete Input";
             }
         }
-        
+
         if(flag) {
             if(isRadioEmpty) {
                 flag = false;
@@ -440,7 +434,7 @@ class restoring_division {
                 title = "Incomplete Input";
             }
         }
-            
+
         //2.) #of bits for both Q and M are <= 16
         if (flag) {
             if ( Q.length() > 16 || M.length() > 16 ){
@@ -481,10 +475,10 @@ class restoring_division {
                 }
             }
         }
-            
 
-    
-        
+
+
+
         arrayResult[0] = ""+flag+"";
         arrayResult[1] = message;
 
