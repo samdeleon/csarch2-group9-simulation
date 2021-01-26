@@ -18,6 +18,11 @@ public class RUDSimulator extends JFrame {
         initComponents();
     }
 
+    public void showErrorMessage(String message, String title)
+    {
+        JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
+    }
+
     private void button4ActionPerformed(ActionEvent e) {
         // TODO add your code here
     }
@@ -326,24 +331,24 @@ public class RUDSimulator extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - Johann Gonzales
-    private JPanel card_container;
-    private JPanel InputMenu;
-    private JPanel panelInside;
+    public JPanel card_container;
+    public JPanel InputMenu;
+    public JPanel panelInside;
     public JTextField inputDividend;
-    private JLabel labelDividend;
+    public JLabel labelDividend;
     public JButton btnEnter;
-    private JLabel labelGroupNames;
+    public JLabel labelGroupNames;
     public JTextField inputDivisor;
-    private JLabel labelDivisor;
+    public JLabel labelDivisor;
     public JRadioButton radiobtnSteps;
     public JRadioButton radiobtnAll;
-    private JLabel labelAppName;
-    private JPanel OutputSteps;
+    public JLabel labelAppName;
+    public JPanel OutputSteps;
     public JButton btnGenerateFile;
     public JButton btnBacktoMenu;
     public JScrollPane textareaOutput;
     public JButton btnNextStep;
-    private JPanel OutputAll;
+    public JPanel OutputAll;
     public JButton btnGenerateFile2;
     public JButton btnBacktoMenu2;
     public JScrollPane textareaOutput2;

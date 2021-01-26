@@ -35,13 +35,35 @@ class restoring_division {
     		@Override
     		public void actionPerformed(ActionEvent event) {
 				String dividend = gui.inputDividend.getText();
-				String divisor = gui.inputDivisor.getText();
-				boolean mode = true;
-				if (gui.radiobtnAll.isSelected())
-					mode = false;
-				else if (gui.radiobtnSteps.isSelected())
-					mode = true;
-				dibision(dividend, divisor, mode); //will be replaced by display to the output page
+                String divisor = gui.inputDivisor.getText();
+                Boolean radiobtn = false;
+
+                // checks if radio buttons are empty (will be passed to validation function)
+                if( !(gui.radiobtnAll.isSelected() || gui.radiobtnSteps.isSelected()) ) {
+                    radiobtn = true;
+                }
+
+                // validation checking
+                String [] arrayAnswer = validationCheck(dividend, divisor, radiobtn);
+
+                boolean valid = Boolean.parseBoolean(arrayAnswer[0]);
+                String message = arrayAnswer[1];
+                String title = arrayAnswer[2];
+        
+                if(valid) {
+                    boolean mode = true;
+                    if (gui.radiobtnAll.isSelected())
+                        mode = false;
+                    else if (gui.radiobtnSteps.isSelected())
+                        mode = true;
+                    dibision(dividend, divisor, mode); //will be replaced by display to the output page
+                }
+                else {
+                    // shows errors in pop up message
+                    gui.showErrorMessage(message, title);
+                }
+
+				
     		}
 		});
     }
@@ -380,6 +402,98 @@ class restoring_division {
       			System.out.println(str);
     		}
         }
+    }
+
+    public static String[] validationCheck(String Q, String M, Boolean isRadioEmpty) {
+        /*
+            This validation checker is done before the dibision function is 
+            called to ensure that the 2 inputs are valid inputs, which will
+            lead to a valid answer. The validation check function will contain
+            4 validations:
+            
+            1.) Incomplete Inputs (some are empty)
+            2.) #of bits for both Q and M are <= 16
+            2.) Dividend and Divisor string only contains 1s and 0s
+        */
+        //setting up needed variables
+        String [] arrayResult = new String [3];
+
+        boolean flag = true;
+        String message = "";
+        String title = "";
+
+        int i;
+
+        //1.) Incomplete Inputs (some are empty)
+        if(flag) {
+            if(Q = "") {
+                flag = false;
+                message = "Please input the dividend";
+                title = "Incomplete Input";
+            }
+        }
+
+        if(flag) {
+            if(M = "") {
+                flag = false;
+                message = "Please input the divisor";
+                title = "Incomplete Input";
+            }
+        }
+        
+        if(flag) {
+            if(isRadioEmpty) {
+                flag = false;
+                message = "Please select a radio button for the output type";
+                title = "Incomplete Input";
+            }
+        }
+            
+        //2.) #of bits for both Q and M are <= 16
+        if (flag) {
+            if ( Q.length() > 16 || M.length() > 16 ){
+                flag = false;
+                message = "Maximum number of bits should be less than or equal to 16";
+                title = "Invalid Input";
+            }
+        }
+
+        //3.) Dividend and Divisor string only contains 1s and 0s
+        if (flag) {
+            for (i = 0; i < Q.length(); i++)
+            {
+
+                if ((Q.charAt(i) != '1' || Q.charAt(i) != '0'))
+                {
+                    flag = false;
+                    message = "Dividend and Divisor should be binary numbers";
+                    title = "Invalid Input";
+                    break;
+                }
+            }
+        }
+
+        // same as 2 but for divisor
+        if (flag){
+            for (i = 0; i < M.length(); i++)
+            {
+                if ((M.charAt(i) != '1' || M.charAt(i) != '0'))
+                {
+                    flag = false;
+                    message = "Dividend and Divisor should be binary numbers";
+                    title = "Invalid Input";
+                    break;
+                }
+            }
+        }
+            
+
+    
+        
+        arrayResult[0] = ""+flag+"";
+        arrayResult[1] = message;
+
+        return arrayResult;
     }
 
     public static void main (String[] args){
