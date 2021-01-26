@@ -241,14 +241,6 @@ class restoring_division {
     }
 
     /*
-        Max 16-bits ata
-        and input should only be 1s or 0s
-    */
-    public static boolean valid_string_input (String X){
-        return true;
-    }
-
-    /*
         Appends 0 to the start of the input string until it matches the given length
     */
     public static String zero_extend(String string_input, int match_length){
@@ -478,7 +470,7 @@ class restoring_division {
         if (flag){
             for (i = 0; i < M.length(); i++)
             {
-                if (Q.charAt(i) == '1' || Q.charAt(i) == '0') {
+                if (M.charAt(i) == '1' || M.charAt(i) == '0') {
                     // its binary so do nothing
                 }
                 else {
