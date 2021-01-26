@@ -114,8 +114,8 @@ new FormModel {
 					"value": "card1"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile:::p:115:p, space s:::p, comp btnBacktoMenu:::p:115:p, space ::169:x, comp btnNextStep:::p:115:p}, comp textareaOutput::::532:x}, space :::p}}"
-					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput:::p:274:p, space u:::p, par b {comp btnGenerateFile::b:p:40:p, comp btnBacktoMenu::b:p:40:p, comp btnNextStep::b:p:40:p}, space :p:93:p}}"
+					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile:::p:115:p, space s:::p, comp btnBacktoMenu:::p:115:p, space ::169:x, comp btnNextStep:::p:115:p}, comp ScrollPaneOutput1::::532:x}, space :::p}}"
+					"$verticalGroup": "par l {seq {space :p:16:p, comp ScrollPaneOutput1:::p:274:p, space u:::p, par b {comp btnGenerateFile::b:p:40:p, comp btnBacktoMenu::b:p:40:p, comp btnNextStep::b:p:40:p}, space :p:93:p}}"
 				} ) {
 					name: "OutputSteps"
 					"background": new java.awt.Color( 17, 99, 65, 255 )
@@ -143,10 +143,16 @@ new FormModel {
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-						name: "textareaOutput"
+						name: "ScrollPaneOutput1"
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "textAreaOutput1"
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
+						} )
 					} )
 					add( new FormComponent( "javax.swing.JButton" ) {
 						name: "btnNextStep"
@@ -162,8 +168,8 @@ new FormModel {
 					"value": "card2"
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile2:::p:115:p, space s:::p, comp btnBacktoMenu2:::p:115:p, space :0:284:x}, comp textareaOutput2::::532:x}, space :::p}}"
-					"$verticalGroup": "par l {seq {space :p:16:p, comp textareaOutput2:::p:274:p, space u:::p, par l {comp btnBacktoMenu2:::p:40:p, comp btnGenerateFile2::l:p:40:p}, space ::93:x}}"
+					"$horizontalGroup": "par l {seq l {space :p:16:p, par l {seq {comp btnGenerateFile2:::p:115:p, space s:::p, comp btnBacktoMenu2:::p:115:p, space :0:284:x}, comp ScrollPaneOutput2::::532:x}, space :::p}}"
+					"$verticalGroup": "par l {seq {space :p:16:p, comp ScrollPaneOutput2:::p:274:p, space u:::p, par l {comp btnBacktoMenu2:::p:40:p, comp btnGenerateFile2::l:p:40:p}, space ::93:x}}"
 				} ) {
 					name: "OutputAll"
 					"background": new java.awt.Color( 17, 99, 65, 255 )
@@ -191,10 +197,16 @@ new FormModel {
 						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "button3ActionPerformed", true ) )
 					} )
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
-						name: "textareaOutput2"
+						name: "ScrollPaneOutput2"
 						auxiliary() {
 							"JavaCodeGenerator.variableModifiers": 1
 						}
+						add( new FormComponent( "javax.swing.JTextArea" ) {
+							name: "textAreaOutput2"
+							auxiliary() {
+								"JavaCodeGenerator.variableModifiers": 1
+							}
+						} )
 					} )
 				}, new FormLayoutConstraints( class java.lang.String ) {
 					"value": "card3"
