@@ -29,6 +29,7 @@ public class restoring_division {
 
     public RUDSimulator gui;
     public ArrayList<String> steps;
+    public String initialization;
     public int stepCtr;
     public ArrayList<String> answerKey;
 
@@ -74,6 +75,23 @@ public class restoring_division {
                     gui.inputDivisor.setText("");
                     gui.btngroup.clearSelection();
 
+                    gui.textAreaOutput1.setEditable(false);
+                    gui.textAreaOutput2.setEditable(false);
+                    gui.btnGenerateFile.setEnabled(false);
+
+                    if(mode) { // step by step
+                        gui.textAreaOutput1.append(initialization + "\n");
+                    }
+                    else { // show all
+                        gui.textAreaOutput2.append(initialization + "\n");
+                        
+                        int i=0;
+
+                        for(i=0; i<steps.size(); i++) {
+                            gui.textAreaOutput2.append(steps.get(i) + "\n");
+                        }
+                    }
+
                     stepCtr = 0;
                 }
                 else {
@@ -93,14 +111,19 @@ public class restoring_division {
                     String toPrint = steps.get(stepCtr);
 
                     // prints out the step
-
-                    //gui.textareaOutput.append(toPrint);
+                    gui.textAreaOutput1.append(toPrint + "\n");
 
                     // increases stepctr
                     stepCtr++;
+
+                    if(stepCtr == steps.size()) {
+                        gui.btnNextStep.setEnabled(false);
+                        gui.btnGenerateFile.setEnabled(true);
+                    }
                 }
                 else {
                     gui.btnNextStep.setEnabled(false);
+                    gui.btnGenerateFile.setEnabled(true);
                 }
 
             }
@@ -110,13 +133,21 @@ public class restoring_division {
         gui.btnGenerateFile.addActionListener(new ActionListener() {
     		@Override
     		public void actionPerformed(ActionEvent event) {
+                // code here for text file
+
+                // shows message that it has successfully generated a text file
+                gui.showSuccessMessage();
             }
         });
 
-        // checks if Generate File button in Output All has been clicked
+        // checks if Generate File button in Output All has been clicked - copy the same code above
         gui.btnGenerateFile2.addActionListener(new ActionListener() {
     		@Override
     		public void actionPerformed(ActionEvent event) {
+                // code here for text file
+
+                // shows message that it has successfully generated a text file
+                gui.showSuccessMessage();
             }
         });
     }
@@ -410,38 +441,33 @@ public class restoring_division {
 			String Q_nblank = String.valueOf(Q_blank);
 			int num = i+1;
 
-			if (mode == true && i == 0)
-				System.out.println("-STEP BY STEP-");
-			else if (mode == false && i == 0)
-				System.out.println("-ALL-");
-
 	        if (i == 0) {
-	           	System.out.println("INITIALIZATION--------");
-	           	System.out.println("A:" + A + "\t\tQ:" + Q);
-	           	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
-	           	System.out.println("");
+                // initialization shows up after clicking enter
+                initialization = "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
 
                 // for steps in text area
-	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
 
                    
-	        } else if (i == Q_dividend.length() - 1) {
+            }
+            else if (i == Q_dividend.length() - 1) {
                 // for steps in text area
 	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
                 steps.add(step);
                 
                 // for text file output
                 
-	        } else {
+            }
+            else {
                 // for steps in text area
-	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
                 steps.add(step);
                 
                 // for text file output
-	        }
+            }
         }
     }
 

@@ -23,6 +23,12 @@ public class RUDSimulator extends JFrame {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
     }
 
+    public void showSuccessMessage()
+    {
+        JOptionPane.showMessageDialog(this, "Text file has been successfully generated", "Success uwu", JOptionPane.PLAIN_MESSAGE);
+    }
+
+
     private void actionGenerateFile(ActionEvent e) {
         // code this in the main file
     }
@@ -37,15 +43,15 @@ public class RUDSimulator extends JFrame {
 
     }
 
-    private void actionBackoMenu(ActionEvent e) {
+    private void button3ActionPerformed(ActionEvent e) {
         // Back to Menu Button
         // This goes back to the input page
         CardLayout card = (CardLayout)card_container.getLayout();
         card.show(card_container, "card1");
-    }
 
-    private void button3ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+        btnNextStep.setEnabled(true);
+        textAreaOutput1.setText("");
+        textAreaOutput2.setText("");
     }
 
     private void button4ActionPerformed(ActionEvent e) {
