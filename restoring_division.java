@@ -11,23 +11,20 @@ public class restoring_division {
         3. shifting the string to the left with the insert
         4. sign extension
         5. the division step
+        6. validation for strings
 
-        what we don't have:
-        1. validation for strings
-        2. output to text file
-
-        what we have to do soon:
-        1. adapt these methods into GUI (we have to remove the
+        What we don't have:
+        1. output to text file
+        2. adapt these methods into GUI (we have to remove the
         static keyword iirc)
-        2. two modes, show all or show one by one
-        3.
+        3. functionality of step-by-step button
 
         tbh i have only tested for the first two examples in the slides
         feel free to test the methods and edit if theres any errors
         hopefully my comments help yalls understand
     */
 
-    public RUDSimulator gui;
+    public static RUDSimulator gui;
     public ArrayList<String> steps;
     public String initialization;
     public int stepCtr;
@@ -35,7 +32,7 @@ public class restoring_division {
 
     public restoring_division() {
         gui = new RUDSimulator();
-        
+
         // checks if Enter button in Input Menu has been clicked
 		gui.btnEnter.addActionListener(new ActionListener() {
     		@Override
@@ -62,21 +59,19 @@ public class restoring_division {
                         mode = false;
                         CardLayout layout = (CardLayout)gui.card_container.getLayout();
                         layout.show(gui.card_container, "card3");
-                        
+
                     }
                     else if (gui.radiobtnSteps.isSelected()){
                         mode = true;
                         CardLayout layout = (CardLayout)gui.card_container.getLayout();
                         layout.show(gui.card_container, "card2");
                     }
-                        
-                    dibision(dividend, divisor, mode); //will be replaced by display to the output page 
+
+                    dibision(dividend, divisor, mode); //will be replaced by display to the output page
                     gui.inputDividend.setText("");
                     gui.inputDivisor.setText("");
                     gui.btngroup.clearSelection();
 
-                    gui.textAreaOutput1.setEditable(false);
-                    gui.textAreaOutput2.setEditable(false);
                     gui.btnGenerateFile.setEnabled(false);
 
                     if(mode) { // step by step
@@ -100,7 +95,7 @@ public class restoring_division {
                 }
     		}
         });
-        
+
         // checks if Next Step button in Output Steps has been clicked
         gui.btnNextStep.addActionListener(new ActionListener() {
     		@Override
@@ -396,7 +391,7 @@ public class restoring_division {
         String A_added;
         String step; //for use in step by step mode
         steps = new ArrayList<String>();
-        
+
         // this is the output inside of the text file
         String finalPerPass;
 
@@ -443,14 +438,18 @@ public class restoring_division {
 
 	        if (i == 0) {
                 // initialization shows up after clicking enter
-                initialization = "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+				if (mode) {
+                    initialization = "-STEP BY STEP-\n" + "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+                }
+                else {
+                    initialization = "-ALL-\n" + "INITIALIZATION--------" + "\n" + "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+                }
 
                 // for steps in text area
 	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
-
                    
             }
             else if (i == Q_dividend.length() - 1) {

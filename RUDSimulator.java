@@ -150,6 +150,11 @@ public class RUDSimulator extends JFrame {
                     radiobtnAll.setForeground(Color.white);
                     radiobtnAll.setBackground(new Color(68, 68, 68));
 
+                    //---- textAreas ----
+                    textAreaOutput1.setEditable(false);
+                    textAreaOutput2.setEditable(false);
+
+
                     GroupLayout panelInsideLayout = new GroupLayout(panelInside);
                     panelInside.setLayout(panelInsideLayout);
                     panelInsideLayout.setHorizontalGroup(
@@ -382,6 +387,3 @@ public class RUDSimulator extends JFrame {
     public ButtonGroup btngroup;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
-
-
-
