@@ -23,32 +23,23 @@ public class RUDSimulator extends JFrame {
         JOptionPane.showMessageDialog(this, message, title, JOptionPane.ERROR_MESSAGE);
     }
 
-    private void button4ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+    private void actionGenerateFile(ActionEvent e) {
+        // code this in the main file
     }
 
-    private void jButton1ActionPerformed(ActionEvent e) {
-        // TODO add your code here
+    private void actionNextStep(ActionEvent e) {
+        // code for this is in main file
     }
 
-    private void jTextField1ActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void jButton2ActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
-
-    private void file_buttonActionPerformed(ActionEvent e) {
-        // TODO add your code here
-    }
 
     public static void main (String[] args) throws Exception{
         // main here
 
     }
 
-    private void button3ActionPerformed(ActionEvent e) {
+    private void actionBackoMenu(ActionEvent e) {
+        // Back to Menu Button
+        // This goes back to the input page
         CardLayout card = (CardLayout)card_container.getLayout();
         card.show(card_container, "card1");
     }
@@ -81,7 +72,7 @@ public class RUDSimulator extends JFrame {
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Restorative Unsigned Division Simulator");
+        setTitle("Restoring Unsigned Division Simulator");
         setResizable(false);
         setVisible(true);
         Container contentPane = getContentPane();
@@ -235,19 +226,19 @@ public class RUDSimulator extends JFrame {
                 btnGenerateFile.setText("Generate File");
                 btnGenerateFile.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                 btnGenerateFile.setBackground(Color.white);
-                btnGenerateFile.addActionListener(e -> button3ActionPerformed(e));
+                btnGenerateFile.addActionListener(e -> actionGenerateFile(e));
 
                 //---- btnBacktoMenu ----
                 btnBacktoMenu.setText("Back to Menu");
                 btnBacktoMenu.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                 btnBacktoMenu.setBackground(Color.white);
-                btnBacktoMenu.addActionListener(e -> button3ActionPerformed(e));
+                btnBacktoMenu.addActionListener(e -> actionBackoMenu(e));
 
                 //---- btnNextStep ----
                 btnNextStep.setText("Next Step");
                 btnNextStep.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                 btnNextStep.setBackground(Color.white);
-                btnNextStep.addActionListener(e -> button4ActionPerformed(e));
+                btnNextStep.addActionListener(e -> actionNextStep(e));
 
                 GroupLayout OutputStepsLayout = new GroupLayout(OutputSteps);
                 OutputSteps.setLayout(OutputStepsLayout);
@@ -288,13 +279,13 @@ public class RUDSimulator extends JFrame {
                 btnGenerateFile2.setText("Generate File");
                 btnGenerateFile2.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                 btnGenerateFile2.setBackground(Color.white);
-                btnGenerateFile2.addActionListener(e -> button3ActionPerformed(e));
+                btnGenerateFile2.addActionListener(e -> actionGenerateFile(e));
 
                 //---- btnBacktoMenu2 ----
                 btnBacktoMenu2.setText("Back to Menu");
                 btnBacktoMenu2.setFont(new Font(Font.SANS_SERIF, Font.PLAIN, 13));
                 btnBacktoMenu2.setBackground(Color.white);
-                btnBacktoMenu2.addActionListener(e -> button3ActionPerformed(e));
+                btnBacktoMenu2.addActionListener(e -> actionBackoMenu(e));
 
                 GroupLayout OutputAllLayout = new GroupLayout(OutputAll);
                 OutputAll.setLayout(OutputAllLayout);

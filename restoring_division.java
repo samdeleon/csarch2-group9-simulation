@@ -2,7 +2,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
-class restoring_division {
+public class restoring_division {
 
     /*
         What we have so far:
@@ -28,9 +28,14 @@ class restoring_division {
     */
 
     public RUDSimulator gui;
+    public ArrayList<String> steps;
+    public int stepCtr;
+    public ArrayList<String> answerKey;
 
     public restoring_division() {
-    	gui = new RUDSimulator();
+        gui = new RUDSimulator();
+        
+        // checks if Enter button in Input Menu has been clicked
 		gui.btnEnter.addActionListener(new ActionListener() {
     		@Override
     		public void actionPerformed(ActionEvent event) {
@@ -67,25 +72,61 @@ class restoring_division {
                     dibision(dividend, divisor, mode); //will be replaced by display to the output page 
                     gui.inputDividend.setText("");
                     gui.inputDivisor.setText("");
-                    gui.radiobtnAll.setSelected(false);
-                    gui.radiobtnSteps.setSelected(false);
+                    gui.btngroup.clearSelection();
+
+                    stepCtr = 0;
                 }
                 else {
                     // shows errors in pop up message
                     gui.showErrorMessage(message, title);
                 }
-
-
     		}
-		});
+        });
+        
+        // checks if Next Step button in Output Steps has been clicked
+        gui.btnNextStep.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent event) {
+                // checks if steps arraylist is empty
+                if(stepCtr < steps.size()) {
+                    // gets string of step
+                    String toPrint = steps.get(stepCtr);
+
+                    // prints out the step
+
+                    //gui.textareaOutput.append(toPrint);
+
+                    // increases stepctr
+                    stepCtr++;
+                }
+                else {
+                    gui.btnNextStep.setEnabled(false);
+                }
+
+            }
+        });
+
+        // checks if Generate File button in Output Steps has been clicked
+        gui.btnGenerateFile.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent event) {
+            }
+        });
+
+        // checks if Generate File button in Output All has been clicked
+        gui.btnGenerateFile2.addActionListener(new ActionListener() {
+    		@Override
+    		public void actionPerformed(ActionEvent event) {
+            }
+        });
     }
 
-    public static String temp_print_row(String A, String Q){
+    public String temp_print_row(String A, String Q){
 
         return "";
     }
 
-    public static String fill_A (int str_length){
+    public String fill_A (int str_length){
         /*
             One way to fill a string with a specific character
 
@@ -101,7 +142,7 @@ class restoring_division {
         return new String(arr);
     }
 
-    public static String twos_compliment (String M){
+    public String twos_compliment (String M){
         /*
             uses the shortuct method:
             - scans left to right
@@ -150,7 +191,7 @@ class restoring_division {
 
         output should be: "10010"
     */
-    public static String shift_and_insert (String input_string, char char_to_insert){
+    public String shift_and_insert (String input_string, char char_to_insert){
         /*
             converts string to a charArray to allow edits to the strings
             since Strings are immutable in Java
@@ -184,7 +225,7 @@ class restoring_division {
         1 + 0 = 1, carry 0
         1 + 1 = 0, carry 1
     */
-    public static String binary_addition(String A, String B){
+    public String binary_addition(String A, String B){
         /*
             Creates a temp string to make a char array to change
             the individual characters
@@ -255,7 +296,7 @@ class restoring_division {
     /*
         Appends 0 to the start of the input string until it matches the given length
     */
-    public static String zero_extend(String string_input, int match_length){
+    public String zero_extend(String string_input, int match_length){
 
         int diff_length = match_length - string_input.length();
 
@@ -276,7 +317,7 @@ class restoring_division {
     /*
      	Function that returns the version of the number with the minimum amount of bits needed (removing 0s in the front)
      */
-     public static String shave(String num){
+     public String shave(String num){
 		String d1 = new String();
 
 		for (int i=0; i < num.length(); i++) {
@@ -310,7 +351,7 @@ class restoring_division {
 
         ***Q0 == Q at index 0
     */
-    public static void dibision (String Q, String M, Boolean mode){
+    public void dibision (String Q, String M, Boolean mode){
     	Q = shave(Q);
     	M = shave(M);
 
@@ -323,7 +364,10 @@ class restoring_division {
         String M_compliment;
         String A_added;
         String step; //for use in step by step mode
-        ArrayList<String> steps = new ArrayList<String>(); //for use in step by step mode
+        steps = new ArrayList<String>();
+        
+        // this is the output inside of the text file
+        String finalPerPass;
 
         /*
             is it possible for M to be longer than Q???
@@ -377,32 +421,31 @@ class restoring_division {
 	           	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
 	           	System.out.println("");
 
+                // for steps in text area
 	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
-	           	steps.add(step);
+                steps.add(step);
+
+                // for text file output
+
+                   
 	        } else if (i == Q_dividend.length() - 1) {
+                // for steps in text area
 	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
-	           	steps.add(step);
+                steps.add(step);
+                
+                // for text file output
+                
 	        } else {
+                // for steps in text area
 	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
-	           	steps.add(step);
+                steps.add(step);
+                
+                // for text file output
 	        }
-
-
-        }
-
-	    if (mode == true) {
-	       	//will be replaced with compatibility with UI's next step button
-	       	for (String str : steps) {
-      			System.out.println(str);
-   			}
-     	} else {
-	       	for (String str : steps) {
-      			System.out.println(str);
-    		}
         }
     }
 
-    public static String[] validationCheck(String Q, String M, Boolean isRadioEmpty) {
+    public String[] validationCheck(String Q, String M, Boolean isRadioEmpty) {
         /*
             This validation checker is done before the dibision function is
             called to ensure that the 2 inputs are valid inputs, which will
