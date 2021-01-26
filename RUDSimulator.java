@@ -56,6 +56,8 @@ public class RUDSimulator extends JFrame {
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Johann Gonzales
+        textarea = new JTextArea();
+        textarea2 = new JTextArea();
         card_container = new JPanel();
         InputMenu = new JPanel();
         panelInside = new JPanel();
@@ -71,12 +73,12 @@ public class RUDSimulator extends JFrame {
         OutputSteps = new JPanel();
         btnGenerateFile = new JButton();
         btnBacktoMenu = new JButton();
-        textareaOutput = new JScrollPane();
+        textareaOutput = new JScrollPane(textarea);
         btnNextStep = new JButton();
         OutputAll = new JPanel();
         btnGenerateFile2 = new JButton();
         btnBacktoMenu2 = new JButton();
-        textareaOutput2 = new JScrollPane();
+        textareaOutput2 = new JScrollPane(textarea2);
         btngroup = new ButtonGroup();
 
         //======== this ========
@@ -140,6 +142,10 @@ public class RUDSimulator extends JFrame {
                     radiobtnAll.setText("Show All");
                     radiobtnAll.setForeground(Color.white);
                     radiobtnAll.setBackground(new Color(68, 68, 68));
+
+                    //---- textArea ----
+                    textarea.setEditable(false);
+                    textarea2.setEditable(false);
 
                     GroupLayout panelInsideLayout = new GroupLayout(panelInside);
                     panelInside.setLayout(panelInsideLayout);
@@ -352,6 +358,8 @@ public class RUDSimulator extends JFrame {
     public JPanel OutputSteps;
     public JButton btnGenerateFile;
     public JButton btnBacktoMenu;
+    public JTextArea textarea;
+    public JTextArea textarea2;
     public JScrollPane textareaOutput;
     public JButton btnNextStep;
     public JPanel OutputAll;

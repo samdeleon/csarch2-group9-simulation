@@ -11,23 +11,20 @@ class restoring_division {
         3. shifting the string to the left with the insert
         4. sign extension
         5. the division step
+        6. validation for strings
 
-        what we don't have:
-        1. validation for strings
-        2. output to text file
-
-        what we have to do soon:
-        1. adapt these methods into GUI (we have to remove the
+        What we don't have:
+        1. output to text file
+        2. adapt these methods into GUI (we have to remove the
         static keyword iirc)
-        2. two modes, show all or show one by one
-        3.
+        3. functionality of step-by-step button
 
         tbh i have only tested for the first two examples in the slides
         feel free to test the methods and edit if theres any errors
         hopefully my comments help yalls understand
     */
 
-    public RUDSimulator gui;
+    public static RUDSimulator gui;
 
     public restoring_division() {
     	gui = new RUDSimulator();
@@ -56,15 +53,15 @@ class restoring_division {
                         mode = false;
                         CardLayout layout = (CardLayout)gui.card_container.getLayout();
                         layout.show(gui.card_container, "card3");
-                        
+
                     }
                     else if (gui.radiobtnSteps.isSelected()){
                         mode = true;
                         CardLayout layout = (CardLayout)gui.card_container.getLayout();
                         layout.show(gui.card_container, "card2");
                     }
-                        
-                    dibision(dividend, divisor, mode); //will be replaced by display to the output page 
+
+                    dibision(dividend, divisor, mode); //will be replaced by display to the output page
                     gui.inputDividend.setText("");
                     gui.inputDivisor.setText("");
                     gui.radiobtnAll.setSelected(false);
@@ -366,38 +363,41 @@ class restoring_division {
 			String Q_nblank = String.valueOf(Q_blank);
 			int num = i+1;
 
-			if (mode == true && i == 0)
-				System.out.println("-STEP BY STEP-");
-			else if (mode == false && i == 0)
-				System.out.println("-ALL-");
+			if (i == 0) {
+				if (mode == true) {
+					gui.textarea.setText("");
+					gui.textarea.append("-STEP BY STEP-");
+					gui.textarea.append("INITIALIZATION--------\n");
+		         	gui.textarea.append("A:" + A + "\tQ:" + Q + "\n");
+		         	gui.textarea.append("M:" + M_divisor + "\t-M:" + M_compliment + "\n\n");
+				} else {
+					gui.textarea2.setText("");
+					gui.textarea2.append("-ALL-\n");
+					gui.textarea2.append("INITIALIZATION--------\n");
+		         	gui.textarea2.append("A:" + A + "\tQ:" + Q + "\n");
+		         	gui.textarea2.append("M:" + M_divisor + "\t-M:" + M_compliment + "\n\n");
+				}
 
-	        if (i == 0) {
-	           	System.out.println("INITIALIZATION--------");
-	           	System.out.println("A:" + A + "\t\tQ:" + Q);
-	           	System.out.println("M:" + M_divisor + "\t\t-M:" + M_compliment);
-	           	System.out.println("");
-
-	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
-	           	steps.add(step);
-	        } else if (i == Q_dividend.length() - 1) {
-	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
-	           	steps.add(step);
-	        } else {
-	           	step = "Pass# " + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
-	           	steps.add(step);
-	        }
-
+		         step = "Pass# " + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n\n";
+		         steps.add(step);
+		    } else if (i == Q_dividend.length() - 1) {
+		        step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\tQuotient:" + Q_dividend + "\n";
+		        steps.add(step);
+		    } else {
+		        step = "Pass# " + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n\n";
+		        steps.add(step);
+		    }
 
         }
 
 	    if (mode == true) {
 	       	//will be replaced with compatibility with UI's next step button
 	       	for (String str : steps) {
-      			System.out.println(str);
+      			gui.textarea.append(str);
    			}
      	} else {
 	       	for (String str : steps) {
-      			System.out.println(str);
+      			gui.textarea2.append(str);
     		}
         }
     }
