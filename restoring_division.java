@@ -389,6 +389,7 @@ public class restoring_division {
         String M_divisor;
         String M_compliment;
         String A_added;
+        String A_init;
         String step; //for use in step by step mode
         steps = new ArrayList<String>();
 
@@ -417,6 +418,7 @@ public class restoring_division {
         String tempInit = "A:" + A + "\tQ:" + Q + "\n" + "M:" + M_divisor + "\t-M:" + M_compliment + "\n";
         for (int i = 0 ; i < Q_dividend.length() ; i++){
             A = shift_and_insert(A, Q_dividend.charAt(0));
+            A_init = A;
             A = binary_addition(A, M_compliment);
             A_added = A;
 
@@ -447,14 +449,20 @@ public class restoring_division {
                 }
 
                 // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
+                if (A_added == A)
+	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
+	            else
+	            	step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
 
             } else {
                 // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "\nA:" + A + "\tQ:" + Q_dividend + "\n";
+	           	if (A_added == A)
+	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
+	            else
+	            	step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
