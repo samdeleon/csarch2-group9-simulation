@@ -79,7 +79,7 @@ public class restoring_division {
                     }
                     else { // show all
                         gui.textAreaOutput2.append(initialization + "\n");
-                        
+
                         int i=0;
 
                         for(i=0; i<steps.size(); i++) {
@@ -410,11 +410,11 @@ public class restoring_division {
             M_divisor = M;
             M_compliment = twos_compliment(M);
         }
-        
+
         /*
             The loop just follows the steps above
         */
-        String tempInit = "A:" + A + "\t\tQ:" + Q + "\n" + "M:" + M_divisor + "\t\t-M:" + M_compliment + "\n";
+        String tempInit = "A:" + A + "\tQ:" + Q + "\n" + "M:" + M_divisor + "\t-M:" + M_compliment + "\n";
         for (int i = 0 ; i < Q_dividend.length() ; i++){
             A = shift_and_insert(A, Q_dividend.charAt(0));
             A = binary_addition(A, M_compliment);
@@ -447,26 +447,25 @@ public class restoring_division {
                 }
 
                 // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\t\tQ:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
-                   
-            }
-            else if (i == Q_dividend.length() - 1) {
+
+            } else {
                 // for steps in text area
-	           	step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\t\tQuotient:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
-                
+
                 // for text file output
-                
-            }
-            else {
-                // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\t\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\t\tQ:" + Q_dividend + "\n";
-                steps.add(step);
-                
-                // for text file output
+
+                if (i == Q_dividend.length() - 1) {
+					// for steps in text area
+	           		step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\tQuotient:" + Q_dividend + "\n";
+                	steps.add(step);
+
+                	// for text file output
+            	}
             }
         }
     }
