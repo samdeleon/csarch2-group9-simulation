@@ -88,7 +88,7 @@ public class RUDSimulator extends JFrame {
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        setTitle("Restorative Unsigned Division Simulator");
+        setTitle("Restoring Unsigned Division Simulator");
         setResizable(false);
         setVisible(true);
         Container contentPane = getContentPane();

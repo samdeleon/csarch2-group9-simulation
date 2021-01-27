@@ -447,14 +447,14 @@ public class restoring_division {
                 }
 
                 // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
 
             } else {
                 // for steps in text area
-	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\nA:" + A_added + "\n\nFinal:\n" + "\nA:" + A + "\tQ:" + Q_dividend + "\n";
+	           	step = "Pass #" + num + "---------------\n" + "A:" + A + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "\nA:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
