@@ -449,7 +449,7 @@ public class restoring_division {
                 }
 
                 // for steps in text area
-                if (A_added == A)
+                if (A_added.equals(A))
 	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
 	            else
 	            	step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
@@ -459,7 +459,7 @@ public class restoring_division {
 
             } else {
                 // for steps in text area
-	           	if (A_added == A)
+	           	if (A_added.equals(A))
 	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
 	            else
 	            	step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
