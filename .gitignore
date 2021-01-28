@@ -1,2 +1,3 @@
 # it just ignores java class files
 *.class
+*.txt
