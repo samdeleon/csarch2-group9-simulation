@@ -2,7 +2,7 @@
 
 ### Topic: Restoring Unsigned Division Simulator
 
-### Group 9 Members
+### S12 Group 9 Members
 - CHUA CHIACO, Ronn
 - DE LEON, Samantha
 - GONZALES, Johann
