@@ -2,6 +2,7 @@ import java.util.Arrays;
 import java.util.ArrayList;
 import java.awt.*;
 import java.awt.event.*;
+import java.io.*;
 public class restoring_division {
 
     /*
@@ -27,8 +28,11 @@ public class restoring_division {
     public static RUDSimulator gui;
     public ArrayList<String> steps;
     public String initialization;
+    public String textinit;
+    public String texterInit;
     public int stepCtr;
     public ArrayList<String> answerKey;
+    public ArrayList<String> textInputs;
 
     public restoring_division() {
         gui = new RUDSimulator();
@@ -75,6 +79,7 @@ public class restoring_division {
                     gui.btnGenerateFile.setEnabled(false);
 
                     if(mode) { // step by step
+                        gui.btnNextStep.setEnabled(true);
                         gui.textAreaOutput1.append(initialization + "\n");
                     }
                     else { // show all
@@ -85,6 +90,8 @@ public class restoring_division {
                         for(i=0; i<steps.size(); i++) {
                             gui.textAreaOutput2.append(steps.get(i) + "\n");
                         }
+
+
                     }
 
                     stepCtr = 0;
@@ -129,9 +136,46 @@ public class restoring_division {
     		@Override
     		public void actionPerformed(ActionEvent event) {
                 // code here for text file
-
+                textinit = "After this pass" + "\t\t  A" + "\t\t\t   Q";
+                String filename = "Restoring_division_answer.txt";
+                try{
+                    FileOutputStream fos = new FileOutputStream(filename);
+                    OutputStreamWriter osw = new OutputStreamWriter(fos);
+                    BufferedWriter bw = new BufferedWriter(osw);
+                    
+                    bw.write(texterInit);
+                    bw.newLine();
+                    bw.write(textinit);
+                    bw.newLine();
+                    
+                    for (int i = 0; i < steps.size()-1; i++)
+                    {
+                        bw.write(textInputs.get(i));
+                        bw.newLine();
+                    }
+                    
+                    bw.flush();
+                    bw.close();
+                    osw.close();
+                    fos.close();
+                    
+                } catch(FileNotFoundException e)
+                { 
+                System.out.println(e.getMessage());
+                } catch(IOException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+                // System.out.println(textinit);
+                // for (int i = 0; i < steps.size()-1; i++)
+                // {
+                //     System.out.print(textInputs.get(i));
+                // }
                 // shows message that it has successfully generated a text file
                 gui.showSuccessMessage();
+                gui.btnNextStep.setEnabled(true);
+                gui.textAreaOutput1.setText("");
+                gui.textAreaOutput2.setText("");
             }
         });
 
@@ -140,9 +184,46 @@ public class restoring_division {
     		@Override
     		public void actionPerformed(ActionEvent event) {
                 // code here for text file
-
-                // shows message that it has successfully generated a text file
+                textinit = "After this pass" + "\t\t  A" + "\t\t\t   Q";
+                String filename = "Restoring_division_answer.txt";
+                try{
+                    FileOutputStream fos = new FileOutputStream(filename);
+                    OutputStreamWriter osw = new OutputStreamWriter(fos);
+                    BufferedWriter bw = new BufferedWriter(osw);
+                    
+                    bw.write(texterInit);
+                    bw.newLine();
+                    bw.write(textinit);
+                    bw.newLine();
+                    
+                    for (int i = 0; i < steps.size()-1; i++)
+                    {
+                        bw.write(textInputs.get(i));
+                        bw.newLine();
+                    }
+                    
+                    bw.flush();
+                    bw.close();
+                    osw.close();
+                    fos.close();
+                    
+                } catch(FileNotFoundException e)
+                { 
+                  System.out.println(e.getMessage());
+                } catch(IOException e)
+                {
+                    System.out.println(e.getMessage());
+                }
+                // System.out.println(textinit);
+                // // for (int i = 0; i < steps.size()-1; i++)
+                // // {
+                // //     System.out.print(textInputs.get(i));
+                // // }
+                //shows message that it has successfully generated a text file
                 gui.showSuccessMessage();
+                gui.btnNextStep.setEnabled(true);
+                gui.textAreaOutput1.setText("");
+                gui.textAreaOutput2.setText("");
             }
         });
     }
@@ -392,6 +473,8 @@ public class restoring_division {
         String A_init;
         String step; //for use in step by step mode
         steps = new ArrayList<String>();
+        textInputs = new ArrayList<String>();
+        String textPass;
 
         // this is the output inside of the text file
         String finalPerPass;
@@ -448,6 +531,7 @@ public class restoring_division {
                     initialization = "-ALL-\n" + "INITIALIZATION--------" + "\n" + tempInit;
                 }
 
+                texterInit = "Initialization: \n" + tempInit;
                 // for steps in text area
                 if (A_added.equals(A))
 	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
@@ -456,23 +540,25 @@ public class restoring_division {
                 steps.add(step);
 
                 // for text file output
+                textPass = "Pass #" + num + "\t\t\t  " + A + "\t\t\t   " + Q_dividend + "\n";
+                textInputs.add(textPass);
 
             } else {
                 // for steps in text area
 	           	if (A_added.equals(A))
 	           		step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRetain:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
-	            else
+	            else 
 	            	step = "Pass #" + num + "---------------\n" + "A:" + A_init + "\tQ:" + Q_nblank + "\n\nA=A-M:\nA:" + A_added + "\n\nRestore:\n" + "A:" + A + "\tQ:" + Q_dividend + "\n";
                 steps.add(step);
 
                 // for text file output
+                textPass = "Pass #" + num + "\t\t\t  " + A + "\t\t\t   " + Q_dividend + "\n";
+                textInputs.add(textPass);
 
                 if (i == Q_dividend.length() - 1) {
 					// for steps in text area
 	           		step = "END-------------------\n" + "\nFinal Answer:\n" + "Remainder:" + A + "\tQuotient:" + Q_dividend + "\n";
                 	steps.add(step);
-
-                	// for text file output
             	}
             }
         }
