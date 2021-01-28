@@ -10,7 +10,7 @@
 
 ### How to Use the Application
 1. Click on the JAR File: ```restoring_division.jar```
-2. Input the **Dividend** and **Divisor**. Our application only accepts Binary Numbers so please make sure to use the correct format.
+2. Input the **Dividend** and **Divisor**. Our application only accepts Binary Numbers up to 16 bits in length. It will also remove any unnecessary zeros from the inputs.
 3. Kindly select an output mode (**Show All** or **Show Step by Step**).
 4. Click the **Enter** button to proceed with your output.
 5. If the mode **Show All** was selected, the application will immediately display the output in the text area.
