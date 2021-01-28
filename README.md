@@ -1,14 +1,19 @@
 # CSARCH2 - Simulation Project
 
+### Topic: Restoring Unsigned Division Simulator
+
 ### Group 9 Members
 - CHUA CHIACO, Ronn
 - DE LEON, Samantha
 - GONZALES, Johann
 - MARASIGAN, Giann
 
-### Running the Application
-1. ``` javac restoring_division.java ```
-2. ``` java restoring_division ```
-
-
-** remember to make app into JAR file as the last step
+### How to Use the Application
+1. Click on the JAR File: ```restoring_division.jar```
+2. Input the **Dividend** and **Divisor**. Our application only accepts Binary Numbers so please make sure to use the correct format.
+3. Kindly select an output type (**Show All** or **Show Step by Step**).
+4. Click the **Enter** button to proceed with your output.
+5. If the option **Show All** was selected, the application will immediately display the output in the text area.
+6. If the option **Show Step by Step** was selected, the application will first display the Initialization in the text area. In order to see the next steps, please click on the **Next Step** button.
+7. The button **Generate File** will save the answers of each pass in a text file.
+8. The **Back to Menu** button will bring you back to the Input Menu page.
